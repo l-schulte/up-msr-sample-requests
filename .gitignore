@@ -1,0 +1,7 @@
+# Bruno environments (contain API tokens, secrets, or local URLs)
+environments/
+
+# Operating system & editor metadata
+.DS_Store
+Thumbs.db
+*.log
