@@ -1,0 +1,19 @@
+meta {
+  name: Project Subsystem Components
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{jira_base_url}}/project/{{jira_project_key}}/components
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  MSR Goal: Architectural module mapping. Returns component names, IDs, leads, and descriptions for module-level defect density analysis.
+}

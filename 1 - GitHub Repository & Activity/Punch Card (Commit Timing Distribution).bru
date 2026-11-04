@@ -1,0 +1,20 @@
+meta {
+  name: Punch Card (Commit Timing Distribution)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/stats/punch_card
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Work patterns and timezone estimation. Returns a 7-day x 24-hour matrix of commit frequencies [day_of_week, hour_of_day, number_of_commits]. Used to infer developer sleep/work rhythms and team geographical distribution.
+}

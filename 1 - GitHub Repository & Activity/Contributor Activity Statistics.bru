@@ -1,0 +1,20 @@
+meta {
+  name: Contributor Activity Statistics
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/stats/contributors
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Contributor workload distribution. Returns total commits, weekly additions (a), deletions (d), and commit counts (c) per contributor. Essential for computing Gini inequality coefficients, Pareto 80/20 distributions, and distinguishing core vs peripheral developers. Note: GitHub returns 202 while calculating stats; retry if needed.
+}

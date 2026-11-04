@@ -1,0 +1,26 @@
+meta {
+  name: List Contributors
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/contributors
+  body: none
+  auth: none
+}
+
+params:query {
+  per_page: 100
+  page: 1
+  anon: true
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Contributor census. Lists all contributors sorted by contribution count with avatar, login, and profile links.
+}

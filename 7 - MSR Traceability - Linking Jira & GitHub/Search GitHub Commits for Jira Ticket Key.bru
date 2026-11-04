@@ -1,0 +1,27 @@
+meta {
+  name: Search GitHub Commits for Jira Ticket Key
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{github_base_url}}/search/commits
+  body: none
+  auth: none
+}
+
+params:query {
+  q: repo:apache/ignite {{sample_jira_key}}
+  sort: committer-date
+  order: desc
+  per_page: 30
+}
+
+headers {
+  Accept: application/vnd.github.cloak-preview+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Issue-to-Commit Traceability Link. Apache Ignite developers prefix commit messages with the Jira issue key (e.g. "IGNITE-11500 ..."). This query links a specific Jira ticket directly to its fixing Git commit SHA.
+}

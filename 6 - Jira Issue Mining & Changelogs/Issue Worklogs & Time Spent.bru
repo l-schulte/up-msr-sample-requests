@@ -1,0 +1,19 @@
+meta {
+  name: Issue Worklogs & Time Spent
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{jira_base_url}}/issue/{{sample_jira_key}}/worklog
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  MSR Goal: Effort estimation. Extracts work log records and time spent where developers logged their hours on bug investigation.
+}

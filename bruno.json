@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "MSR - Apache Ignite",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Compare Two Releases or Commits
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/compare/{{base_commit_or_tag}}...{{head_commit_or_tag}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Release delta mining. Compares two tags (e.g. ignite-2.15.0...ignite-2.16.0). Returns all intervening commits, files modified between versions, and cumulative line additions/deletions across releases.
+}

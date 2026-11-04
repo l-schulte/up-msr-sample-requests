@@ -1,0 +1,26 @@
+meta {
+  name: JQL - Bug Mining with Custom Fields
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{jira_base_url}}/search
+  body: none
+  auth: none
+}
+
+params:query {
+  jql: project = IGNITE AND issuetype = Bug ORDER BY created DESC
+  fields: summary,status,resolution,created,updated,resolutiondate,priority,components,fixVersions,versions,reporter,assignee
+  maxResults: 50
+  startAt: 0
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  MSR Goal: Bug dataset construction. Queries Apache Jira for Ignite bugs, extracting defect priority, affected versions, resolved dates, and architectural components.
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Search All Recent Commits Linking Jira Tickets
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{github_base_url}}/search/commits
+  body: none
+  auth: none
+}
+
+params:query {
+  q: repo:apache/ignite IGNITE-
+  sort: committer-date
+  order: desc
+  per_page: 50
+}
+
+headers {
+  Accept: application/vnd.github.cloak-preview+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Dataset link building. Discovers recent commits that mention Jira tickets for building a paired dataset of (Jira Bug Report, Git Commit Fix, Modified Files).
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Project Release Versions & Dates
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{jira_base_url}}/project/{{jira_project_key}}/versions
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  MSR Goal: Release schedule and milestone analysis. Returns all Ignite releases, start dates, release dates, released status, and overdue flags. Crucial for anchoring defects to concrete software release dates.
+}

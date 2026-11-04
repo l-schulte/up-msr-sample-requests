@@ -1,0 +1,20 @@
+meta {
+  name: Pull Request Reviews & States
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/pulls/{{sample_pull_number}}/reviews
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Reviewer participation and approval dynamics. Lists each reviewer submission with state: APPROVED, CHANGES_REQUESTED, COMMENTED, or DISMISSED, along with timestamps and reviewer IDs.
+}

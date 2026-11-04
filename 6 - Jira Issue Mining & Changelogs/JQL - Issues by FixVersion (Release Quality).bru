@@ -1,0 +1,25 @@
+meta {
+  name: JQL - Issues by FixVersion (Release Quality)
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{jira_base_url}}/search
+  body: none
+  auth: none
+}
+
+params:query {
+  jql: project = IGNITE AND fixVersion = 2.16.0 AND issuetype = Bug
+  fields: summary,status,resolution,priority,components
+  maxResults: 50
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  MSR Goal: Release defect density. Extracts all bugs targeted or resolved in a specific software version (e.g. 2.16.0) to evaluate version stability.
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Single Issue Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/issues/{{sample_issue_number}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Issue lifecycle analysis. Inspect author, assignees, labels, milestone, state_reason (completed, not_planned), created_at, and closed_at.
+}

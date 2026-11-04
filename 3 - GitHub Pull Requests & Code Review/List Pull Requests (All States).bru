@@ -1,0 +1,28 @@
+meta {
+  name: List Pull Requests (All States)
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/pulls
+  body: none
+  auth: none
+}
+
+params:query {
+  state: all
+  sort: updated
+  direction: desc
+  per_page: 100
+  page: 1
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Peer code review mining. Measures PR acceptance rate, rejection rate, time-to-decision (closed_at - created_at), and merge ratios (merged_at).
+}

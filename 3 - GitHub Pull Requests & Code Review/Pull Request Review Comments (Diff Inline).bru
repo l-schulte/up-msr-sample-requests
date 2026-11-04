@@ -1,0 +1,20 @@
+meta {
+  name: Pull Request Review Comments (Diff Inline)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/pulls/{{sample_pull_number}}/comments
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Qualitative review feedback analysis. Extracts comments tied to specific diff hunks, file paths, and line numbers. Used for sentiment analysis, code quality discussions, and study of reviewer-author interactions.
+}

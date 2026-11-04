@@ -1,0 +1,20 @@
+meta {
+  name: Single Pull Request Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/pulls/{{sample_pull_number}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Deep PR metrics. Returns detailed merge info (mergeable, merged, merged_by, merge_commit_sha), comment counts, review comment counts, additions, deletions, and changed files.
+}

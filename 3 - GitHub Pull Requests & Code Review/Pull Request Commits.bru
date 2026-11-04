@@ -1,0 +1,20 @@
+meta {
+  name: Pull Request Commits
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/pulls/{{sample_pull_number}}/commits
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Review rework tracking. Lists individual commits added to the PR branch before merging, showing author adjustments during the code review cycle.
+}

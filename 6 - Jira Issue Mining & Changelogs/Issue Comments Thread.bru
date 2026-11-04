@@ -1,0 +1,19 @@
+meta {
+  name: Issue Comments Thread
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{jira_base_url}}/issue/{{sample_jira_key}}/comment
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  MSR Goal: Developer discussion dynamics. Retrieves developer commentary, patch attachments announcements, and review debates on Jira.
+}

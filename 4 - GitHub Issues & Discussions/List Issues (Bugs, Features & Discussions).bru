@@ -1,0 +1,29 @@
+meta {
+  name: List Issues (Bugs, Features & Discussions)
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/issues
+  body: none
+  auth: none
+}
+
+params:query {
+  state: all
+  ~labels: bug
+  sort: created
+  direction: desc
+  per_page: 100
+  page: 1
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Issue tracker mining. Note: GitHub returns PRs in this endpoint as well; check if the item contains a "pull_request" key to distinguish pure issue discussions from code reviews.
+}

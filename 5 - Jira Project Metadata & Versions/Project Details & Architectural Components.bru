@@ -1,0 +1,19 @@
+meta {
+  name: Project Details & Architectural Components
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{jira_base_url}}/project/{{jira_project_key}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  MSR Goal: Project structure mining. Retrieves project lead, issue types (Bug, Improvement, New Feature, Task), and component list representing Apache Ignite subsystems (e.g. core, sql, indexing, thin-client).
+}

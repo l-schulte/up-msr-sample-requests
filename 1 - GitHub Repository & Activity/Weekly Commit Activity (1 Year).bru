@@ -1,0 +1,20 @@
+meta {
+  name: Weekly Commit Activity (1 Year)
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/stats/commit_activity
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Longitudinal activity tracking. Returns the number of commits for each week in the past year, broken down by day of the week. Used to detect sprint rhythms, development slowdowns, and release freezes.
+}

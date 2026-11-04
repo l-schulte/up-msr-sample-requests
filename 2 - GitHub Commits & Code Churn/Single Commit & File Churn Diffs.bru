@@ -1,0 +1,20 @@
+meta {
+  name: Single Commit & File Churn Diffs
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/commits/{{sample_commit_sha}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Code Churn & Diff Analysis. Returns total additions, deletions, total changed files, and individual file diffs (filename, status: modified/added/removed, patch text). Used to calculate relative code churn and defect-inducing modifications (SZZ algorithm input).
+}

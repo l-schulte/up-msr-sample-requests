@@ -1,0 +1,27 @@
+meta {
+  name: Search GitHub PRs Linking Jira Tickets
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{github_base_url}}/search/issues
+  body: none
+  auth: none
+}
+
+params:query {
+  q: repo:apache/ignite is:pr IGNITE-
+  sort: updated
+  order: desc
+  per_page: 50
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Issue-to-PR Traceability. Links Jira issues to GitHub pull requests, enabling end-to-end tracing: Bug Reported (Jira) -> Code Review (GitHub PR) -> Bug Fixed (GitHub Commit).
+}

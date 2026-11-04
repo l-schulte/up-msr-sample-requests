@@ -1,0 +1,23 @@
+meta {
+  name: Single Issue & Full Changelog (State Transitions)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{jira_base_url}}/issue/{{sample_jira_key}}
+  body: none
+  auth: none
+}
+
+params:query {
+  expand: changelog,names,schema
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  MSR Goal: Bug lifecycle and state machine mining. The changelog records every field modification over time (Open -> Patch Available -> In Review -> Resolved), reassignments between developers (tossing graphs), and priority escalations.
+}

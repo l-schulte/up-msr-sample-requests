@@ -1,0 +1,20 @@
+meta {
+  name: Repository Overview
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Baseline repository metrics (stars, forks, open issue count, watcher count, repo size, license, and default branch). Used for repository sizing and popularity evaluation.
+}

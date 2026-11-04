@@ -1,0 +1,20 @@
+meta {
+  name: Issue Comments Thread
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/issues/{{sample_issue_number}}/comments
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Issue discussion mining. Retrieves full comment thread, participating users, comment length, and reaction emojis (+1, -1, heart, laugh).
+}

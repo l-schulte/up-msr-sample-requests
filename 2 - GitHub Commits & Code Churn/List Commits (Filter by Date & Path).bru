@@ -1,0 +1,29 @@
+meta {
+  name: List Commits (Filter by Date & Path)
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{github_base_url}}/repos/{{github_owner}}/{{github_repo}}/commits
+  body: none
+  auth: none
+}
+
+params:query {
+  per_page: 100
+  page: 1
+  since: 2024-01-01T00:00:00Z
+  until: 2024-12-31T23:59:59Z
+  ~path: modules/core
+  ~author: 
+}
+
+headers {
+  Accept: application/vnd.github+json
+  ~Authorization: Bearer {{github_token}}
+}
+
+docs {
+  MSR Goal: Mining commit log timelines. Extracts commit SHAs, author identity, committer identity, timestamps, commit messages, and parent SHAs. Primary source for commit-frequency studies.
+}
